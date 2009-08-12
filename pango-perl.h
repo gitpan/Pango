@@ -67,4 +67,7 @@
 SV * newSVPangoRectangle (PangoRectangle * rectangle);
 PangoRectangle * SvPangoRectangle (SV * sv);
 
+/* for registering custom attribute types */
+void gtk2perl_pango_attribute_register_custom_type (PangoAttrType type, const char *package);
+
 #endif /* _PANGO_PERL_H_ */

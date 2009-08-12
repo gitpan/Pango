@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Pango
-version:            1.220
+version:            1.221
 abstract:           Layout and render international text
 author:  []
 license:            unknown
@@ -11,6 +11,8 @@ configure_requires:
     ExtUtils::MakeMaker:  0
     ExtUtils::PkgConfig:  1.030
     Glib:                 1.220
+build_requires:
+    ExtUtils::MakeMaker:  0
 requires:
     Cairo:                1.000
     ExtUtils::Depends:    0.300
@@ -20,7 +22,7 @@ no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.48
+generated_by:       ExtUtils::MakeMaker version 6.54
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4

@@ -18,7 +18,14 @@
  */
 
 #include "pango-perl.h"
-#include "pango-perl-private.h"
+
+#define PANGO_PERL_ATTR_STORE_INDICES(offset, attr)	\
+	if (items == offset + 2) {			\
+		guint start = SvUV (ST (offset));	\
+		guint end = SvUV (ST (offset + 1));	\
+		attr->start_index = start;		\
+		attr->end_index = end;			\
+	}
 
 /* ------------------------------------------------------------------------- */
 
@@ -442,7 +449,7 @@ PangoAttribute_own * pango_attr_language_new (class, PangoLanguage *language, ..
     C_ARGS:
 	language
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoLanguage *
 value (PangoAttribute * attr, ...)
@@ -466,7 +473,7 @@ PangoAttribute_own * pango_attr_family_new (class, const char *family, ...);
     C_ARGS:
 	family
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 # --------------------------------------------------------------------------- #
 
@@ -479,7 +486,7 @@ PangoAttribute_own * pango_attr_foreground_new (class, guint16 red, guint green,
     C_ARGS:
 	red, green, blue
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (4, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (4, RETVAL);
 
 # --------------------------------------------------------------------------- #
 
@@ -492,7 +499,7 @@ PangoAttribute_own * pango_attr_background_new (class, guint16 red, guint green,
     C_ARGS:
 	red, green, blue
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (4, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (4, RETVAL);
 
 # --------------------------------------------------------------------------- #
 
@@ -505,7 +512,7 @@ PangoAttribute_own * pango_attr_size_new (class, int size, ...)
     C_ARGS:
 	size
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 #if PANGO_CHECK_VERSION (1, 8, 0)
 
@@ -513,7 +520,7 @@ PangoAttribute_own * pango_attr_size_new_absolute (class, int size, ...)
     C_ARGS:
 	size
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 #endif
 
@@ -532,7 +539,7 @@ PangoAttribute_own * pango_attr_style_new (class, PangoStyle style, ...)
     C_ARGS:
 	style
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoStyle
 value (PangoAttribute * attr, ...)
@@ -554,7 +561,7 @@ PangoAttribute_own * pango_attr_weight_new (class, PangoWeight weight, ...);
     C_ARGS:
 	weight
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoWeight
 value (PangoAttribute * attr, ...)
@@ -576,7 +583,7 @@ PangoAttribute_own * pango_attr_variant_new (class, PangoVariant variant, ...)
     C_ARGS:
 	variant
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoVariant
 value (PangoAttribute * attr, ...)
@@ -598,7 +605,7 @@ PangoAttribute_own * pango_attr_stretch_new (class, PangoStretch stretch, ...)
     C_ARGS:
 	stretch
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoStretch
 value (PangoAttribute * attr, ...)
@@ -620,7 +627,7 @@ PangoAttribute_own * pango_attr_underline_new (class, PangoUnderline underline, 
     C_ARGS:
 	underline
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoUnderline
 value (PangoAttribute * attr, ...)
@@ -642,7 +649,7 @@ PangoAttribute_own * pango_attr_strikethrough_new (class, gboolean strikethrough
     C_ARGS:
 	strikethrough
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 gboolean
 value (PangoAttribute * attr, ...)
@@ -664,7 +671,7 @@ PangoAttribute_own * pango_attr_font_desc_new (class, PangoFontDescription * fon
     C_ARGS:
 	font_desc
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoFontDescription_own *
 desc (PangoAttribute * attr, ...)
@@ -690,7 +697,7 @@ PangoAttribute_own * pango_attr_scale_new (class, float scale, ...)
     C_ARGS:
 	scale
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 double
 value (PangoAttribute * attr, ...)
@@ -712,7 +719,7 @@ PangoAttribute_own * pango_attr_rise_new (class, int rise, ...)
     C_ARGS:
 	rise
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 # --------------------------------------------------------------------------- #
 
@@ -725,7 +732,7 @@ PangoAttribute_own * pango_attr_shape_new (class, PangoRectangle *ink_rect, Pang
     C_ARGS:
 	ink_rect, logical_rect
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (3, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (3, RETVAL);
 
 PangoRectangle *
 ink_rect (PangoAttribute * attr, ...)
@@ -762,7 +769,7 @@ PangoAttribute_own * pango_attr_fallback_new (class, gboolean enable_fallback, .
     C_ARGS:
 	enable_fallback
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 gboolean
 value (PangoAttribute * attr, ...)
@@ -788,7 +795,7 @@ PangoAttribute_own * pango_attr_letter_spacing_new (class, int letter_spacing, .
     C_ARGS:
 	letter_spacing
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 #endif
 
@@ -805,7 +812,7 @@ PangoAttribute_own * pango_attr_underline_color_new (class, guint16 red, guint16
     C_ARGS:
 	red, green, blue
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (4, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (4, RETVAL);
 
 #endif
 
@@ -822,7 +829,7 @@ PangoAttribute_own * pango_attr_strikethrough_color_new (class, guint16 red, gui
     C_ARGS:
 	red, green, blue
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (4, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (4, RETVAL);
 
 #endif
 
@@ -839,7 +846,7 @@ PangoAttribute_own * pango_attr_gravity_new (class, PangoGravity gravity, ...)
     C_ARGS:
 	gravity
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoGravity
 value (PangoAttribute * attr, ...)
@@ -859,7 +866,7 @@ PangoAttribute_own * pango_attr_gravity_hint_new (class, PangoGravityHint hint, 
     C_ARGS:
 	hint
     POSTCALL:
-	GTK2PERL_PANGO_ATTR_STORE_INDICES (2, RETVAL);
+	PANGO_PERL_ATTR_STORE_INDICES (2, RETVAL);
 
 PangoGravityHint
 value (PangoAttribute * attr, ...)
