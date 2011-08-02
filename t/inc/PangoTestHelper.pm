@@ -9,8 +9,9 @@ sub import {
   my %options = @_;
 
   if ($options{need_gtk}) {
-    unless (eval "use Gtk2 $REQ_GTK2_VERSION -init; 1;") {
-      plan skip_all => "This test needs Gtk2 >= $REQ_GTK2_VERSION";
+    unless (eval "use Gtk2 $REQ_GTK2_VERSION; Gtk2->init_check;") {
+      plan skip_all =>
+        "This test needs Gtk2 >= $REQ_GTK2_VERSION and a display";
     }
   }
 

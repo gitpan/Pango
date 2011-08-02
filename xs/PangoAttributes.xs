@@ -114,7 +114,7 @@ gtk2perl_pango_attribute_get_type (void)
 
 static GHashTable *gtk2perl_pango_attribute_table = NULL;
 
-/* Exported (gtk2perl-private.h) for GdkPango.xs. */
+/* Exported for Gtk2/xs/GdkPango.xs. */
 void
 gtk2perl_pango_attribute_register_custom_type (PangoAttrType type,
 					       const char *package)
@@ -438,6 +438,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrLanguage	PREFIX = pango_attr_language_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrLanguage");
 	gperl_set_isa ("Pango::AttrLanguage", "Pango::Attribute");
 
 =for apidoc
@@ -467,6 +468,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrFamily	PREFIX = pango_attr_family_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrFamily");
 	gperl_set_isa ("Pango::AttrFamily", "Pango::AttrString");
 
 PangoAttribute_own * pango_attr_family_new (class, const char *family, ...);
@@ -480,6 +482,7 @@ PangoAttribute_own * pango_attr_family_new (class, const char *family, ...);
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrForeground	PREFIX = pango_attr_foreground_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrForeground");
 	gperl_set_isa ("Pango::AttrForeground", "Pango::AttrColor");
 
 PangoAttribute_own * pango_attr_foreground_new (class, guint16 red, guint green, guint16 blue, ...);
@@ -493,6 +496,7 @@ PangoAttribute_own * pango_attr_foreground_new (class, guint16 red, guint green,
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrBackground	PREFIX = pango_attr_background_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrBackground");
 	gperl_set_isa ("Pango::AttrBackground", "Pango::AttrColor");
 
 PangoAttribute_own * pango_attr_background_new (class, guint16 red, guint green, guint16 blue, ...);
@@ -506,6 +510,7 @@ PangoAttribute_own * pango_attr_background_new (class, guint16 red, guint green,
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrSize	PREFIX = pango_attr_size_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrSize");
 	gperl_set_isa ("Pango::AttrSize", "Pango::AttrInt");
 
 PangoAttribute_own * pango_attr_size_new (class, int size, ...)
@@ -533,6 +538,7 @@ PangoAttribute_own * pango_attr_size_new_absolute (class, int size, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrStyle	PREFIX = pango_attr_style_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrStyle");
 	gperl_set_isa ("Pango::AttrStyle", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_style_new (class, PangoStyle style, ...)
@@ -555,6 +561,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrWeight	PREFIX = pango_attr_weight_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrWeight");
 	gperl_set_isa ("Pango::AttrWeight", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_weight_new (class, PangoWeight weight, ...);
@@ -577,6 +584,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrVariant	PREFIX = pango_attr_variant_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrVariant");
 	gperl_set_isa ("Pango::AttrVariant", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_variant_new (class, PangoVariant variant, ...)
@@ -599,6 +607,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrStretch	PREFIX = pango_attr_stretch_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrStretch");
 	gperl_set_isa ("Pango::AttrStretch", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_stretch_new (class, PangoStretch stretch, ...)
@@ -621,6 +630,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrUnderline	PREFIX = pango_attr_underline_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrUnderline");
 	gperl_set_isa ("Pango::AttrUnderline", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_underline_new (class, PangoUnderline underline, ...)
@@ -643,6 +653,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrStrikethrough	PREFIX = pango_attr_strikethrough_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrStrikethrough");
 	gperl_set_isa ("Pango::AttrStrikethrough", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_strikethrough_new (class, gboolean strikethrough, ...)
@@ -665,6 +676,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrFontDesc	PREFIX = pango_attr_font_desc_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrFontDesc");
 	gperl_set_isa ("Pango::AttrFontDesc", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_font_desc_new (class, PangoFontDescription * font_desc, ...)
@@ -691,6 +703,7 @@ desc (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrScale	PREFIX = pango_attr_scale_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrScale");
 	gperl_set_isa ("Pango::AttrScale", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_scale_new (class, float scale, ...)
@@ -713,6 +726,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrRise	PREFIX = pango_attr_rise_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrRise");
 	gperl_set_isa ("Pango::AttrRise", "Pango::AttrInt");
 
 PangoAttribute_own * pango_attr_rise_new (class, int rise, ...)
@@ -726,6 +740,7 @@ PangoAttribute_own * pango_attr_rise_new (class, int rise, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrShape	PREFIX = pango_attr_shape_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrShape");
 	gperl_set_isa ("Pango::AttrShape", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_shape_new (class, PangoRectangle *ink_rect, PangoRectangle *logical_rect, ...)
@@ -763,6 +778,7 @@ ink_rect (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrFallback	PREFIX = pango_attr_fallback_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrFallback");
 	gperl_set_isa ("Pango::AttrFallback", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_fallback_new (class, gboolean enable_fallback, ...)
@@ -789,6 +805,7 @@ value (PangoAttribute * attr, ...)
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrLetterSpacing	PREFIX = pango_attr_letter_spacing_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrLetterSpacing");
 	gperl_set_isa ("Pango::AttrLetterSpacing", "Pango::AttrInt");
 
 PangoAttribute_own * pango_attr_letter_spacing_new (class, int letter_spacing, ...)
@@ -806,6 +823,7 @@ PangoAttribute_own * pango_attr_letter_spacing_new (class, int letter_spacing, .
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrUnderlineColor	PREFIX = pango_attr_underline_color_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrUnderlineColor");
 	gperl_set_isa ("Pango::AttrUnderlineColor", "Pango::AttrColor");
 
 PangoAttribute_own * pango_attr_underline_color_new (class, guint16 red, guint16 green, guint16 blue, ...)
@@ -823,6 +841,7 @@ PangoAttribute_own * pango_attr_underline_color_new (class, guint16 red, guint16
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrStrikethroughColor	PREFIX = pango_attr_strikethrough_color_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrStrikethroughColor");
 	gperl_set_isa ("Pango::AttrStrikethroughColor", "Pango::AttrColor");
 
 PangoAttribute_own * pango_attr_strikethrough_color_new (class, guint16 red, guint16 green, guint16 blue, ...)
@@ -840,6 +859,7 @@ PangoAttribute_own * pango_attr_strikethrough_color_new (class, guint16 red, gui
 MODULE = Pango::Attributes	PACKAGE = Pango::AttrGravity	PREFIX = pango_attr_gravity_
 
 BOOT:
+	gperl_register_boxed_alias (PANGO_TYPE_ATTRIBUTE, "Pango::AttrGravity");
 	gperl_set_isa ("Pango::AttrGravity", "Pango::Attribute");
 
 PangoAttribute_own * pango_attr_gravity_new (class, PangoGravity gravity, ...)

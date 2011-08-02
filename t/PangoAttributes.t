@@ -451,17 +451,23 @@ isa_ok ($iter, 'Pango::AttrIterator');
 is_deeply ([$iter->range], [0, 23]);
 ok ($iter->get ('weight')->equal ($attr_weight));
 
-my @attrs = $iter->get_attrs;
-is (scalar @attrs, 2);
-ok ($attrs[1]->equal ($attr_variant));
 
-ok ($iter->next);
-ok ($iter->next);
+SKIP: {
+	skip 'get_attrs', 6
+		unless Pango->CHECK_VERSION (1, 2, 0);
 
-@attrs = $iter->get_attrs;
-is (scalar @attrs, 0);
+	my @attrs = $iter->get_attrs;
+	is (scalar @attrs, 2);
+	ok ($attrs[1]->equal ($attr_variant));
 
-is ($iter->get ('weight'), undef);
+	ok ($iter->next);
+	ok ($iter->next);
+
+	@attrs = $iter->get_attrs;
+	is (scalar @attrs, 0);
+
+	is ($iter->get ('weight'), undef);
+}
 
 # get_font
 $list = Pango::AttrList->new;
@@ -508,7 +514,7 @@ SKIP: {
 
 	my $list_new = $list->filter ($callback, 'urgs');
 	$iter = $list_new->get_iterator;
-	@attrs = $iter->get_attrs;
+	my @attrs = $iter->get_attrs;
 	is (scalar @attrs, 1);
 	isa_ok ($attrs[0], 'Pango::AttrWeight');
 	ok ($iter->next);
@@ -526,7 +532,10 @@ isa_ok ($attr_list, 'Pango::AttrList');
 is ($text, 'this text is really cool (no lie)', 'text is stripped of tags');
 ok ((not defined $accel_char), 'no accel_char if no accel_marker');
 
-{
+SKIP: {
+	skip 'need get_attrs', 7
+		unless Pango->CHECK_VERSION (1, 2, 0);
+
 	# first, only <big>
 	my $iter = $attr_list->get_iterator;
 	my @attrs = $iter->get_attrs;

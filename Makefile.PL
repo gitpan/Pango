@@ -194,10 +194,14 @@ WriteMakefile(
     FUNCLIST      => \@exports,
     DL_FUNCS      => { Pango => [] },
 
-    META_MERGE    => { configure_requires => \%PREREQ_PM },
+    META_MERGE    => {
+        configure_requires => \%PREREQ_PM,
+        no_index => {
+            file => \@xs_files,
+        },
+    },
 
     $pango->get_makefile_vars,
-
 );
 
 #

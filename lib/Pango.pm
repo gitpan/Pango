@@ -32,7 +32,7 @@ eval "use Cairo;";
 use Exporter;
 require DynaLoader;
 
-our $VERSION = '1.221';
+our $VERSION = '1.222';
 
 our @ISA = qw(DynaLoader Exporter);
 
@@ -108,7 +108,7 @@ documentation is available at L<http://library.gnome.org/devel/pango/stable/>.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2008 by the gtk2-perl team.
+Copyright 2003-2011 by the gtk2-perl team.
 
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Library General Public License as published by the Free
