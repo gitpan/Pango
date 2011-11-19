@@ -1,3 +1,8 @@
+Overview of changes in Pango 1.223
+==================================
+
+* Fix a test failure in t/PangoCairo.t
+
 Overview of changes in Pango 1.222
 ==================================
 
