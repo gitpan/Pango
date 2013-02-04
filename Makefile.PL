@@ -1,5 +1,5 @@
-# Copyright (C) 2003-2007 by the gtk2-perl team (see the file AUTHORS for the
-# full list)
+# Copyright (C) 2003-2007, 2013 by the gtk2-perl team (see the file AUTHORS
+# for the full list)
 #
 # This library is free software; you can redistribute it and/or modify it under
 # the terms of the GNU Library General Public License as published by the Free
@@ -38,6 +38,7 @@ our %PREREQ_PM = (
 	'ExtUtils::PkgConfig' => $build_reqs{'perl-ExtUtils-PkgConfig'},
 	'Glib'                => $build_reqs{'perl-Glib'},
 );
+
 
 #
 # look for our prerequisites.  if they can't be found, warn and exit with
@@ -184,6 +185,42 @@ $pango->save_config ('build/IFiles.pm');
 # exports list needed for win32, unused on others
 my @exports = Glib::MakeHelper->read_source_list_file ('pango.exports');
 
+my %meta_merge = (
+        q(meta-spec)          => {
+            version => '2',
+            url     => 'http://search.cpan.org/perldoc?CPAN::Meta::Spec',
+        },
+        author              =>
+            ['gtk2-perl Team <gtk-perl-list at gnome dot org>'],
+        release_status      => 'stable',
+        # valid values: https://metacpan.org/module/CPAN::Meta::Spec#license
+        license             => 'lgpl_2_1',
+        resources => {
+            license     => 'http://www.gnu.org/licenses/lgpl-2.1.html',
+            homepage    => 'http://gtk2-perl.sourceforge.net',
+            x_MailingList =>
+                'https://mail.gnome.org/mailman/listinfo/gtk-perl-list',
+            bugtracker  => {
+                    web     =>
+                    'http://rt.cpan.org/Public/Dist/Display.html?Name=Pango',
+                    mailto  => 'bug-Gtk2 [at] rt.cpan.org',
+            },
+            repository  => {
+                    url     => 'git://git.gnome.org/perl-Pango',
+                    type    => 'git',
+                    web     => 'http://git.gnome.org/browse/perl-Pango',
+            },
+        },
+        prereqs => {
+            configure => {
+                requires => {%PREREQ_PM}, # no direct ref for 5.14 compatibility
+            },
+        },
+        no_index           => {
+            file => \@xs_files,
+        },
+);
+
 WriteMakefile(
     NAME          => 'Pango',
     VERSION_FROM  => 'lib/Pango.pm',
@@ -193,14 +230,7 @@ WriteMakefile(
     MAN3PODS      => \%pod_files,
     FUNCLIST      => \@exports,
     DL_FUNCS      => { Pango => [] },
-
-    META_MERGE    => {
-        configure_requires => \%PREREQ_PM,
-        no_index => {
-            file => \@xs_files,
-        },
-    },
-
+    META_MERGE    => \%meta_merge,
     $pango->get_makefile_vars,
 );
 

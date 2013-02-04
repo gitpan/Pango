@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005-2006 by the gtk2-perl team (see the file AUTHORS)
+ * Copyright (c) 2005-2006, 2013 by the gtk2-perl team (see the file AUTHORS)
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -39,6 +39,8 @@ pango_color_wrap (GType gtype,
 {
 	PangoColor *color = boxed;
 	AV *av;
+	PERL_UNUSED_VAR (gtype);
+	PERL_UNUSED_VAR (package);
 
 	if (!color)
 		return &PL_sv_undef;
@@ -66,6 +68,8 @@ pango_color_unwrap (GType gtype,
 	PangoColor *color;
 	AV * av;
 	SV ** v;
+	PERL_UNUSED_VAR (gtype);
+	PERL_UNUSED_VAR (package);
 
 	if (!gperl_sv_is_defined (sv))
 		return NULL;
@@ -97,6 +101,7 @@ static void
 pango_color_destroy (SV * sv)
 {
 	/* We allocated nothing in wrap, so do nothing here. */
+	PERL_UNUSED_VAR (sv);
 }
 
 /* ------------------------------------------------------------------------- */
