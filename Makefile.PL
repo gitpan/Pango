@@ -203,7 +203,7 @@ my %meta_merge = (
             bugtracker  => {
                     web     =>
                     'http://rt.cpan.org/Public/Dist/Display.html?Name=Pango',
-                    mailto  => 'bug-Gtk2 [at] rt.cpan.org',
+                    mailto  => 'bug-Pango [at] rt.cpan.org',
             },
             repository  => {
                     url     => 'git://git.gnome.org/perl-Pango',
