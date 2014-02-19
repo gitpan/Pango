@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2003-2008 by the gtk2-perl team (see the file AUTHORS for the
- * full list)
+ * Copyright (C) 2003-2008, 2014 by the gtk2-perl team (see the file AUTHORS
+ * for the full list)
  *
  * This library is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Library General Public License as published by
@@ -9,12 +9,11 @@
  *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
- * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Library General Public
- * License for more details.
+ * FITNESS FOR A PARTICULAR PURPOSE.
  *
- * You should have received a copy of the GNU Library General Public License
- * along with this library; if not, write to the Free Software Foundation,
- * Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307  USA.
+ * See the LICENSE file in the top-level directory of this distribution for
+ * the full license terms.
+ *
  */
 
 #ifndef _PANGO_PERL_H_

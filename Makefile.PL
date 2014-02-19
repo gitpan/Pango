@@ -8,12 +8,10 @@
 #
 # This library is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for
-# more details.
+# FOR A PARTICULAR PURPOSE.
 #
-# You should have received a copy of the GNU Library General Public License
-# along with this library; if not, write to the Free Software Foundation, Inc.,
-# 59 Temple Place - Suite 330, Boston, MA 02111-1307 USA.
+# See the LICENSE file in the top-level directory of this distribution for the
+# full license terms.
 
 BEGIN { require 5.008; }
 
@@ -200,6 +198,7 @@ my %meta_merge = (
             homepage    => 'http://gtk2-perl.sourceforge.net',
             x_MailingList =>
                 'https://mail.gnome.org/mailman/listinfo/gtk-perl-list',
+            x_twitter   => 'https://twitter.com/GTKPerl',
             bugtracker  => {
                     web     =>
                     'http://rt.cpan.org/Public/Dist/Display.html?Name=Pango',

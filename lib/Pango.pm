@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2003-2008, 2013 by the gtk2-perl team (see the file AUTHORS
-# for the full list)
+# Copyright (C) 2003-2008, 2013-2014 by the gtk2-perl team (see the file
+# AUTHORS for the full list)
 #
 # This library is free software; you can redistribute it and/or modify it under
 # the terms of the GNU Library General Public License as published by the Free
@@ -9,13 +9,10 @@
 #
 # This library is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE.  See the GNU Library General Public License for
-# more details.
+# FOR A PARTICULAR PURPOSE.
 #
-# You should have received a copy of the GNU Library General Public License
-# along with this library; if not, write to the Free Software Foundation, Inc.,
-# 59 Temple Place - Suite 330, Boston, MA  02111-1307  USA.
-#
+# See the LICENSE file in the top-level directory of this distribution for the
+# full license terms.
 
 package Pango;
 
@@ -32,7 +29,7 @@ eval "use Cairo;";
 use Exporter;
 require DynaLoader;
 
-our $VERSION = '1.225';
+our $VERSION = '1.226';
 
 our @ISA = qw(DynaLoader Exporter);
 
@@ -108,7 +105,7 @@ documentation is available at L<http://library.gnome.org/devel/pango/stable/>.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2003-2011 by the gtk2-perl team.
+Copyright 2003-2011, 2014 by the gtk2-perl team.
 
 This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU Library General Public License as published by the Free
@@ -117,11 +114,9 @@ later version.
 
 This library is distributed in the hope that it will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.  See the GNU Library General Public License for more
-details.
+PARTICULAR PURPOSE.
 
-You should have received a copy of the GNU Library General Public License along
-with this library; if not, write to the Free Software Foundation, Inc., 59
-Temple Place - Suite 330, Boston, MA 02111-1307 USA.
+See the LICENSE file in the top-level directory of this distribution for the
+full license terms.
 
 =cut

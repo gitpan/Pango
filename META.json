@@ -4,7 +4,7 @@
       "gtk2-perl Team <gtk-perl-list at gnome dot org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.86, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "lgpl_2_1"
    ],
@@ -36,21 +36,7 @@
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : "0"
-         }
-      },
       "configure" : {
-         "requires" : {
-            "Cairo" : "1.000",
-            "ExtUtils::Depends" : "0.300",
-            "ExtUtils::MakeMaker" : "0",
-            "ExtUtils::PkgConfig" : "1.030",
-            "Glib" : "1.220"
-         }
-      },
-      "runtime" : {
          "requires" : {
             "Cairo" : "1.000",
             "ExtUtils::Depends" : "0.300",
@@ -74,7 +60,8 @@
          "url" : "git://git.gnome.org/perl-Pango",
          "web" : "http://git.gnome.org/browse/perl-Pango"
       },
-      "x_MailingList" : "https://mail.gnome.org/mailman/listinfo/gtk-perl-list"
+      "x_MailingList" : "https://mail.gnome.org/mailman/listinfo/gtk-perl-list",
+      "x_twitter" : "https://twitter.com/GTKPerl"
    },
-   "version" : "1.225"
+   "version" : "1.226"
 }
